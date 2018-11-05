@@ -7,7 +7,7 @@
 **Schön, dass Du dabei bist!**  
 Merke dir schon einmal dieses Repository.  
 Hier wird während des Workshops stets der Quelltext unserer Beispielanwendung verfügbar sein.
-> **https://github.com/angular-schule/2018-10-angular-workshop-darmstadt**
+> **https://github.com/angular-schule/2018-11-angular-workshop-darmstadt**
 
 Damit wir gleich durchstarten können, solltest Du ein paar Vorbereitungen treffen.  
 Die gesamte Installation wird rund 30 Minuten dauern. 
