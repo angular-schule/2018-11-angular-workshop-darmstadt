@@ -63,10 +63,12 @@ Was die Parameter im Einzelnen bedeuten, besprechen wir natürlich im Workshop!
 Führe in Deinem Arbeitsverzeichnis die folgenden Befehle aus:
 
 ```
-ng new book-rating --routing --style=scss --prefix=br
+ng new book-rating --routing --style=scss
 cd book-rating
 ng serve
 ```
+
+> ACHTUNG: Der Parameter `--prefix=br` wurde Aufgrund von Installationsproblemen aus der Anleitung entfernt.
 
 Achtung! Die Installation kann bei langsamer Internetverbindung sehr lange dauern.
 Warte beim Schritt `Installing packages for tooling via npm.` mit Geduld ab!
