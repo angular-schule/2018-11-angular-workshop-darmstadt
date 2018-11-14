@@ -16,7 +16,7 @@ export class BookComponent implements OnInit {
   ngOnInit() {
   }
 
-  get rating() {
+  getRating() {
     return new Array(this.book.rating);
   }
 

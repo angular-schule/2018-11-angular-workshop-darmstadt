@@ -5,7 +5,8 @@
     <div class="card-title">
       <h2>
         {{ book.title }}
-        <ng-container *ngFor="let r of rating">★</ng-container>
+        <ng-container *ngFor="let r of getRating()">★</ng-container>
+
       </h2>
     </div>
 
