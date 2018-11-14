@@ -1,11 +1,17 @@
-<h2>{{ book.title }} - {{ book.rating }}</h2>
+<div class="card mb-4">
+  <div class="card-body bg-light">
+    <img class="img-thumbnail float-right" src="//api.angular.schule/avatar/{{ book.rating }}">
 
-<img src="//api.angular.schule/avatar/{{ book.rating }}">
-<!-- <img [src]="'//api.angular.schule/avatar/' + book.rating "> -->
+    <div class="card-title">
+      <h2>
+        {{ book.title }}
+        <ng-container *ngFor="let r of rating">★</ng-container>
+      </h2>
+    </div>
 
-<!-- böse: logik in HTML! -->
-<button (click)="book.rating = book.rating + 1">+1</button>
+    <p>
+      {{ book.description }}
+    </p>
 
-<p>
-  {{ book.description }}
-</p>
+  </div>
+</div>
