@@ -1,0 +1,11 @@
+<h2>{{ book.title }} - {{ book.rating }}</h2>
+
+<img src="//api.angular.schule/avatar/{{ book.rating }}">
+<!-- <img [src]="'//api.angular.schule/avatar/' + book.rating "> -->
+
+<!-- böse: logik in HTML! -->
+<button (click)="book.rating = book.rating + 1">+1</button>
+
+<p>
+  {{ book.description }}
+</p>

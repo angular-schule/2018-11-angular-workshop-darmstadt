@@ -1,3 +1,7 @@
 <p>
-  {{ books | json }}
+  <br-book
+    style="display: block"
+    *ngFor="let b of books; even as e"
+    [ngClass]="{ 'bg-light': e }"
+    [book]="b"></br-book>
 </p>
