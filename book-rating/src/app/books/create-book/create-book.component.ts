@@ -21,6 +21,12 @@ export class CreateBookComponent {
     description: new FormControl('')
   });
 
+  constructor() {
+    this.bookForm.valueChanges.subscribe(
+      e => console.log(e)
+    );
+  }
+
   submitForm() {
     const book = {
       ...this.bookForm.value,
