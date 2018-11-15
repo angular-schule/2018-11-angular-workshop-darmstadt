@@ -70,7 +70,7 @@ cd book-rating
 ng serve
 ```
 
-> ACHTUNG: Bei Fehlern mit `node-sass` bitte noch einmal ausführen: `npm i node-sass`.
+> ACHTUNG: Bei Fehlern mit `node-gyp` bzw. `node-sass` bitte noch einmal ausführen: `npm i node-sass`.
 
 Achtung! Die Installation kann bei langsamer Internetverbindung sehr lange dauern.
 Warte beim Schritt `Installing packages for tooling via npm.` mit Geduld ab!
