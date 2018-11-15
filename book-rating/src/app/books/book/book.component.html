@@ -18,9 +18,11 @@
       (click)="rateDown()"
       [disabled]="!rateDownAllowed()">-1</button>
 
-    <button testRateUpButton class="btn btn-primary"
+    <button testRateUpButton class="btn btn-primary mr-2"
       (click)="rateUp()"
       [disabled]="!rateUpAllowed()">+1</button>
+
+    <a [routerLink]="['/book', book.isbn]" class="btn btn-secondary">Details</a>
 
   </div>
 </div>
