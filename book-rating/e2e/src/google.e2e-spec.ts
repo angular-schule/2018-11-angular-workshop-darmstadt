@@ -28,7 +28,7 @@ describe('Google', () => {
 
  it('should show Angular.io as first result', () => {
     const url = resultsPage.getFirstResultUrl().getText();
-    expect(url).toBe('https://angular.io/');
+    expect(url).toBe('https://angularjs.org/');
   });
 
   afterAll(() => {
