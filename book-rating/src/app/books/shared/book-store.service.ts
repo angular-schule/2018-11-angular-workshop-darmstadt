@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from './book';
-import { retry } from 'rxjs/operators';
+import { retry, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -15,7 +15,8 @@ export class BookStoreService {
   getAll(): Observable<Book[]> {
     return this.http.get<Book[]>('https://api.angular.schule/books')
       .pipe(
-        retry(3)
+        retry(3),
+        map(books => books.filter(b => b.title !== 'jQuery'))
       );
   }
 }

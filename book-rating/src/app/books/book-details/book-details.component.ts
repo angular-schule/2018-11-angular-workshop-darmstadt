@@ -13,7 +13,10 @@ export class BookDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.isbn = this.route.snapshot.paramMap.get('isbn');
+    // this.isbn = this.route.snapshot.paramMap.get('isbn');
+
+    this.route.paramMap
+      .subscribe(params => this.isbn = params.get('isbn'));
   }
 
 }
