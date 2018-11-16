@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { from } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { map, filter, mergeMap, retry, share } from 'rxjs/operators';
+import { BookStoreService } from '../shared/book-store.service';
+import { Book } from '../shared/book';
 
 @Component({
   selector: 'br-book-details',
@@ -9,26 +12,48 @@ import { from } from 'rxjs';
 })
 export class BookDetailsComponent implements OnInit {
 
-  isbn: string;
-
-  constructor(private route: ActivatedRoute) { }
+  book$: Observable<Book>;
+  constructor(private route: ActivatedRoute, private service: BookStoreService) { }
 
   ngOnInit() {
 
-    from([1, 2, 3, 4, 5, 6])
-      .subscribe(
-        marble => console.log(marble),
-        e => console.error(e),
-        () => console.log('complete')
-      );
+    //#region
+    // Observer!
+    const observer = {
+      next: marble => console.log('SUCCESS: ', marble),
+      error: e => console.error('ERROR: ', e),
+      complete: () => console.log('complete')
+    };
 
+    // Observable
+    const myObservable$ = new Observable<number>(myObserver1 => {
 
+      myObserver1.next(1);
+      myObserver1.next(2);
+      myObserver1.next(3);
+      myObserver1.next(4);
 
+      setTimeout(() => myObserver1.next(5), 1000);
 
-    // this.isbn = this.route.snapshot.paramMap.get('isbn');
+      // setTimeout(() => myObserver1.error(6), 2000);
+      setTimeout(() => myObserver1.complete(), 2000);
+    });
 
-    this.route.paramMap
-      .subscribe(params => this.isbn = params.get('isbn'));
+    // Subscription!
+    const subscription = myObservable$
+      .pipe(
+        map((marble) => marble * 10),
+        filter(m => m < 40)
+      )
+      .subscribe(observer);
+
+    setTimeout(() => subscription.unsubscribe(), 3000);
+    //#endregion
+
+    this.book$ = this.route.paramMap.pipe(
+      map(params => params.get('isbn')),
+      mergeMap(isbn => this.service.getSingle(isbn)),
+      // share()
+    );
   }
-
 }

@@ -19,4 +19,8 @@ export class BookStoreService {
         map(books => books.filter(b => b.title !== 'jQuery'))
       );
   }
+
+  getSingle(isbn: string): Observable<Book> {
+    return this.http.get<Book>('https://api.angular.schule/book/' + isbn);
+  }
 }
