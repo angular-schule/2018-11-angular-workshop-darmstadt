@@ -20,6 +20,7 @@ Die gesamte Installation wird rund 30 Minuten dauern.
 1. **Node.js 8.9** oder höher: [https://nodejs.org](https://nodejs.org)
 2. **Google Chrome:** [https://www.google.com/chrome/](https://www.google.com/chrome/)
 3. **[Angular Augury](https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd)** (Chrome Extension)
+3. **[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 4. **Visual Studio Code:** [https://code.visualstudio.com](https://code.visualstudio.com)
    * [Angular-Schule: Extension Pack](https://marketplace.visualstudio.com/items?itemName=angular-schule.angular-schule-extension-pack) für Visual Studio Code 
    * Bei Bedarf kann auch eine andere IDE verwendet werden, z.B. IntelliJ oder WebStorm.
