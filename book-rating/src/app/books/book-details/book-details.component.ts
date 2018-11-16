@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { from, Observable } from 'rxjs';
-import { map, filter, mergeMap, retry, share } from 'rxjs/operators';
+import { from, Observable, of } from 'rxjs';
+import { map, filter, mergeMap, retry, share, concatMap, switchMap, tap, catchError } from 'rxjs/operators';
 import { BookStoreService } from '../shared/book-store.service';
 import { Book } from '../shared/book';
 
@@ -52,7 +52,14 @@ export class BookDetailsComponent implements OnInit {
 
     this.book$ = this.route.paramMap.pipe(
       map(params => params.get('isbn')),
-      mergeMap(isbn => this.service.getSingle(isbn)),
+      tap(d => { console.log(d); }),
+      switchMap(isbn => this.service.getSingle(isbn)),
+      catchError(e => of({
+        title: 'sorry',
+        description: 'kein buch da',
+        isbn: '000',
+        rating: 5
+      }))
       // share()
     );
   }
