@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookComponent } from './book.component';
 import { BookRatingService } from '../shared/book-rating.service';
 import { By } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -10,8 +11,8 @@ describe('BookComponent', () => {
 
   const ratingMock = {
     rateUp: () => { },
-    rateUpAllowed: () => { },
-    rateDownAllowed: () => { }
+    rateUpAllowed: () => true,
+    rateDownAllowed: () => true
   };
 
   beforeEach(async(() => {
@@ -19,6 +20,9 @@ describe('BookComponent', () => {
     spyOn(ratingMock, 'rateUp');
 
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [
         BookComponent
       ],
