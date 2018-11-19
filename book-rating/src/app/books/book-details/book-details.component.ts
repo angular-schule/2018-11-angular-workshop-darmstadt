@@ -52,15 +52,16 @@ export class BookDetailsComponent implements OnInit {
 
     this.book$ = this.route.paramMap.pipe(
       map(params => params.get('isbn')),
-      tap(d => { console.log(d); }),
-      switchMap(isbn => this.service.getSingle(isbn)),
-      catchError(e => of({
-        title: 'sorry',
-        description: 'kein buch da',
-        isbn: '000',
-        rating: 5
-      }))
-      // share()
+      switchMap(isbn => this.service.getSingle(isbn)
+        .pipe(
+          catchError(e => of({
+            title: 'sorry',
+            description: 'kein buch da',
+            isbn: '000',
+            rating: 5
+          }))
+        )
+      )
     );
   }
 }
