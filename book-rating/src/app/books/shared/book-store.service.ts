@@ -13,7 +13,7 @@ export class BookStoreService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Book[]> {
-    return this.http.get<Book[]>('https://api.angular.schule/books')
+    return this.http.get<Book[]>('https://api.angular.schule/secure/books')
       .pipe(
         retry(3),
         map(books => books.filter(b => b.title !== 'jQuery'))
@@ -21,6 +21,6 @@ export class BookStoreService {
   }
 
   getSingle(isbn: string): Observable<Book> {
-    return this.http.get<Book>('https://api.angular.schule/book/' + isbn);
+    return this.http.get<Book>('https://api.angular.schule/secure/book/' + isbn);
   }
 }

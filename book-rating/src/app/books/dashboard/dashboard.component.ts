@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -11,7 +12,15 @@ export class DashboardComponent implements OnInit {
 
   books: Book[] = []; // Array<string>
 
-  constructor(private service: BookStoreService) { }
+  constructor(private service: BookStoreService, private auth: AuthService) { }
+
+  login() {
+    this.auth.login();
+  }
+
+  logout() {
+    this.auth.logout();
+  }
 
   ngOnInit() {
     this.service.getAll()
