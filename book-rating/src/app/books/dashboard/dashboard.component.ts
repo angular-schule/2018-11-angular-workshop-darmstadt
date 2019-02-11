@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 import { AuthService } from '../shared/auth.service';
+import { OAuthService } from 'angular-oauth2-oidc';
+
 
 @Component({
   selector: 'br-dashboard',
@@ -12,14 +14,21 @@ export class DashboardComponent implements OnInit {
 
   books: Book[] = []; // Array<string>
 
-  constructor(private service: BookStoreService, public auth: AuthService) { }
+  constructor(private service: BookStoreService,
+    public o: OAuthService) {
+
+  }
 
   login() {
-    this.auth.login();
+    this.o.initImplicitFlow();
   }
 
   logout() {
-    this.auth.logout();
+    this.o.logOut();
+  }
+
+  get isLoggedIn() {
+    return this.o.hasValidAccessToken();
   }
 
   ngOnInit() {
