@@ -1,14 +1,16 @@
 <button
+  [disabled]="auth.isAuthenticated"
   class="btn btn-success mr-2" (click)="login()">Login</button>
 
 <button
+  [disabled]="!auth.isAuthenticated"
   class="btn btn-success" (click)="logout()">Logout</button>
 
 <br-create-book
   (created)="addBook($event)"
 ></br-create-book>
 
-<p>
+<p *ngIf="auth.isAuthenticated">
   <br-book
     style="display: block"
     *ngFor="let b of books; even as e"

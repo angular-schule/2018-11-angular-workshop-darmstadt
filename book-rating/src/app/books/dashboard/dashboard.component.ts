@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   books: Book[] = []; // Array<string>
 
-  constructor(private service: BookStoreService, private auth: AuthService) { }
+  constructor(private service: BookStoreService, public auth: AuthService) { }
 
   login() {
     this.auth.login();

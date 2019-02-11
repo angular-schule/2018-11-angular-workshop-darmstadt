@@ -38,6 +38,11 @@ export class AuthService {
   }
 
   logout() {
+    sessionStorage.removeItem('access_token');
+    // this.router.navigate(['/']);
+  }
 
+  get isAuthenticated() {
+    return !!sessionStorage.getItem('access_token');
   }
 }
