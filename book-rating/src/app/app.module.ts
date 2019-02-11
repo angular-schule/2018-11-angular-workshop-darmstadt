@@ -18,16 +18,16 @@ import { TokenInterceptor } from './books/shared/token-interceptor';
     BooksModule,
     HttpClientModule // ACHTUNG: Ausnahme, HTTP wird ganz oben importiert
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }],
+  // providers: [{
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: TokenInterceptor,
+  //   multi: true
+  // }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
-  constructor(public auth: AuthService) {
-    this.auth.handleAuthentication();
-  }
+  // constructor(public auth: AuthService) {
+  //   this.auth.handleAuthentication();
+  // }
 }
