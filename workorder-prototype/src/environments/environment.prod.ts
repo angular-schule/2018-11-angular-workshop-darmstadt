@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+
+  AUTH_ISSUER_URL: 'TODO KEYCLOAK'
 };
